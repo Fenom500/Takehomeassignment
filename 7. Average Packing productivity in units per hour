@@ -1,0 +1,17 @@
+import pandas as pd
+
+# Load the data
+transaction_log = pd.read_csv('wms_inventory_transaction_log.csv')
+
+# Filter for packing operation type
+packing_data = transaction_log[transaction_log['operation_type'] == 'Packing']
+
+# Calculate total units packed
+total_units_packed = packing_data['quantity'].sum()
+
+# Assume we have time spent on packing (not provided in the data)
+# time_spent_packing = sum(time spent on each packing operation in hours)
+
+# Calculate productivity
+productivity = total_units_packed / time_spent_packing
+print(productivity)
