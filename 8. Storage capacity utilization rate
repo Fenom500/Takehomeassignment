@@ -1,7 +1,7 @@
 import pandas as pd
 
 # Load the data
-transaction_log = pd.read_csv('wms_inventory_transaction_log.csv')
+item_info = pd.read_csv('wms_item_info.csv')
 inventory_summary = pd.read_csv('wms_inventory_summary.csv')
 
 # Merge with item info to get storage type
