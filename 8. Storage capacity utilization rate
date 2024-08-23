@@ -1,0 +1,20 @@
+import pandas as pd
+
+# Load the data
+transaction_log = pd.read_csv('wms_inventory_transaction_log.csv')
+inventory_summary = pd.read_csv('wms_inventory_summary.csv')
+
+# Merge with item info to get storage type
+merged_inventory = pd.merge(inventory_summary, item_info, on='item_number')
+
+# Assume we have total storage capacity information (not provided in the data)
+
+# Calculate occupied space
+merged_inventory['occupied_volume'] = merged_inventory['quantity'] * merged_inventory['volume']
+
+# Sum occupied volume by warehouse
+occupied_space = merged_inventory.groupby('warehouse_id')['occupied_volume'].sum()
+
+# Calculate utilization rate (occupied_space / total_storage_capacity)
+utilization_rate = occupied_space / total_storage_capacity
+print(utilization_rate)
