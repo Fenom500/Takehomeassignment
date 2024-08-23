@@ -2,6 +2,7 @@ import pandas as pd
 
 # Load the data
 transaction_log = pd.read_csv('wms_inventory_transaction_log.csv')
+inventory_summary = pd.read_csv('wms_inventory_summary.csv')
 
 # Count distinct expiration dates per SKU
 expiration_dates_count = inventory_summary.groupby('item_number')['expiration_timestamp'].nunique().reset_index()
