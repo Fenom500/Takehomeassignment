@@ -1,7 +1,7 @@
 import pandas as pd
 
 # Load the data
-transaction_log = pd.read_csv('wms_inventory_transaction_log.csv')
+inventory_summary = pd.read_csv('wms_inventory_summary.csv')
 
 # Extract aisle from location_no
 inventory_summary['aisle'] = inventory_summary['location_no'].str[:1]
